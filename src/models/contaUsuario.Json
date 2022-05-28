@@ -1,0 +1,19 @@
+[
+    {  "id": 1,
+    "name": "Edilaine silva de souza",
+      "mail": "edilaine45@yahoo.com.br",
+      "senha": "1SSD224"
+
+    },
+    {  "id": 2,
+        "name": "Heloisa silva de souza",
+          "mail": "helo_dss@yahoo.com.br",
+          "password": "1SSD323"
+        },
+        {  "id": 3,
+            "name": "Rafael santos lacerda",
+              "mail": "rafaSantos@gmail.com",
+              "password": "1SSD329"
+        }
+]
+
