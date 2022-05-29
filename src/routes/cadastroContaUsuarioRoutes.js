@@ -1,5 +1,5 @@
 
-const controller = require("../controller/contaUsuarioController")
+const controller = require("../controller/CadastroContaUsuarioController")
 
 const express = require("express")
 
