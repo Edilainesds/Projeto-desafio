@@ -1,30 +1,27 @@
 const express = require("express")
 const cors = require("cors")
+const bodyParser = require("body-parser")
 
-const saldoUsuarioRoutes = require("./routes/saldoUsuarioRoutes")
-
-const cadastroUsuarioRoutes = require("./routes/cadastroContaUsuarioRoutes")
-
-const loginUsuariosRoutes = require("./routes/loginRoutes")
-
-const transferenciaEntreContas = require("./routes/transferenciaEntreContasRoutes")
-const retiradaRoutes = require("./routes/retiradaRoutes")
-
-const depositoRoutes = require("./routes/depositoRoutes")
-const extratoRoutes = require("./routes/extratoRoutes")
+require("dotenv-safe").config()
+//const swagger = require("swagger-ui-express")
+const db = require("./database/mongoConfig")
 
 const app = express() 
 
+
+const cadastroRoutes = require("./routes/cadastroRoutes")
+const loginUsuariosRoutes = require("./routes/loginRoutes")
+
+
+db.connect()
+
 app.use(cors())
 app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use("/investimentos",saldoUsuarioRoutes)
-app.use("/registro", cadastroUsuarioRoutes)
+
+app.use("/registro", cadastroRoutes)
 app.use("/loginUser", loginUsuariosRoutes)
-app.use("/transferencia", transferenciaEntreContas)
-app.use("/saque", retiradaRoutes)
-app.use("/depositos", depositoRoutes)
-app.use("/extratos", extratoRoutes)
 
 
 
