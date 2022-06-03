@@ -163,17 +163,14 @@ Para a construção do projeto, as seguintes tecnologias foram utilizadas:
 
 
 
-## 🚧 Possibilidades futuras.
-
-<br>
-
-* Criação de testes.
-
 
 
 <br>
 
-## 👨‍💻 Autora Edilaine silva
+
+
+
+<br>
 
 
 <td align="center"><a href="https://github.com/Edilainesds">
