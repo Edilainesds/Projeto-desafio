@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const MONGODB_URI =""
+const MONGODB_URI ="mongodb+srv://edilainesds22:1JXkGSBnDFC9EFdd@cluster0.zhoz2.mongodb.net/test"
 
 
 

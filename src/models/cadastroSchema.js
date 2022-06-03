@@ -14,7 +14,7 @@ const CadastroSchema = new mongoose.Schema({
         required: true,
     },
 
-    password: {
+    senha: {
         type: String,
         required: true,
     },
@@ -42,10 +42,6 @@ const CadastroSchema = new mongoose.Schema({
        type: String,
        required: true,
     },
-    terms_of_use: {
-        type: Boolean,
-        required: true,
-     },
 
     criadoEm: {
         type: Date,

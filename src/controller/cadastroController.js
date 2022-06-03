@@ -1,122 +1,102 @@
-const CadastroSchema = require("../models/cadastroSchema")
+const Cadastro = require("../models/cadastroSchema")
 const mongoose = require("mongoose")
 
-const getAll = async(req,res)=>{
 
-    try {
-      const cadastros = await cadastroSchema.find();
-      res.status(200).json({
-        message: " Usuário encontrado com sucesso",
-        cadastros
-      
-      }) 
-    } catch (error){
-        res.status(500).json({
-            message : error.message
-        }
-        )}
-  }
+const criarConta = async (request, response) => {
 
-const createConta = async (request, response) => {
-    try {
+    const cadastro = new Cadastro({
+        _id: new mongoose.Types.ObjectId(),
+        nome: request.body.nome,
+        email: request.body.email,
+        senha: request.body.senha,
+        cpf: request.body.cpf,
+        endereco: request.body.endereco,
+        bairro: request.body.bairro,
+        celular: request.body.celular,
+        pais: request.body.pais,
+        criadoEm: request.body.criadoEm
+    })
 
-        const { nome, email, password, confirmpassword, cpf, endereco, bairro, celular, pais, terms_of_use } = request.body
-        
-        if (!nome) {
-            return response.status(406).json({
-                message: "O Campo nome é obrigatório"
-            })
-        }
-
-        if (!email) {
-            return response.status(406).json({
-                message: "O campo  email é obrigatório"
-            })
-        }
-
-        if (!password) {
-            return response.status(406).json({
-                message: " O campo senha é obrigatória"
-            })
-        }
-
-        if (!password !== confirmpassword) {
-            return response.status(406).json({
-                message: "As senhas não correspondem a senha precisa ser igual"
-            })
-        }
-
-        if (!cpf && cpf == 11) {
-            return response.status(406).json({
-                message: " O campo cpf é obrigatório, e precisa ter 11 números"
-            })
-        }
-
-        if (!endereco) {
-            return response.status(406).json({
-                message: " O campo endereço é obrigatório"
-            })
-        }
-
-        if (!bairro) {
-            return response.status(406).json({
-                message: " O campo bairro é obrigatório"
-            })
-        }
-
-        if (!celular) {
-            return response.status(406).json({
-                message: " O campo celular é obrigatório"
-            })
-        }
-
-        if (!pais) {
-            return response.status(406).json({
-                message: " O campo Pais é obrigatório"
-            })
-        }
-
-        const ContaExiste = await CadastroSchema.findOne({ email: email })
-        if (ContaExiste) {
-            return response.status(406).json({
-                message: "email já está sendo utilizado"
-            })
-        }
-
-        const newConta = new CadastroSchema({
-            _id: new mongoose.Types.ObjectId(),
-            nome: request.body.nome,
-            email: request.body.email,
-            password: request.body.password,
-            cpf: request.body.cpf,
-            endereco: request.body.endereco,
-            bairro: request.body.bairro,
-            celular: request.body.celular,
-            pais: request.body.pais,
-            terms_of_use: request.body.terms_of_use
-        })
-
-        if (!terms_of_use) {
-            return res.status(406).json({
-                message:
-                    "E necessário aceitar nossos termos para concluir cadastro",
-            })
-        }
-
-        const contaSalva = await newConta.save()
-        response.status(201).json({
-            message: "cadastro concluido com sucesso",
-            contaSalva
-        })
-    } catch (error) {
-        response.status(404).json({
-            mensagem: error.message,
+    const cadastroJaExiste = await Cadastro.findOne({
+        email: request.body.email
+    })
+    if (cadastroJaExiste) {
+        return response.status(409).json({
+            error: "Usuário já cadastrado"
         })
     }
 
-} 
+    try {
+        const novoCadastro = await cadastro.save()
+        response.status(201).json(novoCadastro)
+    } catch (error) {
+        response.status(500).json({
+            message: error.message
+        })
 
-module.exports = {
-    getAll,
-    createConta
+    }
 }
+    const mostraCadastro = async (request, response) => {
+
+
+        try {
+            const cadastros = await Cadastro.find()
+            response.status(200).json(cadastros)
+        } catch (error) {
+            response.status(500).json({
+                message: error.message
+            })
+
+        }
+    }
+    const atualizaCadastros = async (request, response) => {
+        const encontraCadastro = await Cadastro.findById(request.params.id)
+        if (encontraCadastro == null) {
+            return response.status(404).json({ message: 'Cadastro não encontrado' })
+    
+        }
+        if (request.body.email != null) {
+            encontraCadastro.email = request.body.email
+        }
+    
+        if (request.body.senha != null) {
+            encontraCadastro.senha = request.body.senha
+        }
+
+        if (request.body.endereco != null) {
+            encontraCadastro.endereco = request.body.endereco
+        }
+        if (request.body.bairro != null) {
+            encontraCadastro.bairro = request.body.bairro
+        }
+
+        if (request.body.celular != null) {
+            encontraCadastro.celular = request.body.celular
+        }
+
+        if (request.body.pais != null) {
+            encontraCadastro.pais = request.body.pais
+        }
+
+    
+        try {
+    
+            const cadastroAtualizado = await encontraCadastro.save()
+            response.status(200).json(cadastroAtualizado)
+        
+        } catch (error) {
+            response.status(500).json({ message: error.message })
+            
+        }
+    }
+
+
+
+
+
+
+    module.exports = {
+        criarConta,
+        mostraCadastro,
+        atualizaCadastros
+    }
