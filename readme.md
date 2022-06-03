@@ -9,24 +9,6 @@
 - [Instruções para testar rotas ](#instruções-para-rotas)
 - [Portas](#portas)
 
-<p align="justify"> 
-
-<p align="justify"
-<p align="justify">
-<br><br>
-
-
-
-<br>
-
-<p align="justify">
-<p align="justify">
-<br>
-
-<br>
-
-
-<br>
 
 ## 🛠️ Tecnologias utilizadas no projeto
 
