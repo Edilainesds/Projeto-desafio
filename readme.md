@@ -3,7 +3,6 @@
 <h1 align="center">
     <br>
     
-    <p align="center"> <p>
 </h1>
 <p align="center">
 <img src=""
