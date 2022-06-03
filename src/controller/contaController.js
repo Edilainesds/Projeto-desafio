@@ -7,7 +7,7 @@ const contaSaldo = async (request, response) => {
         _id: new mongoose.Types.ObjectId(),
         nome: request.body.nome,
         saldo: request.body.saldo,
-        extrato: request.body.extrato,
+        extrato: request.body.extrato
        
     })
     try {
