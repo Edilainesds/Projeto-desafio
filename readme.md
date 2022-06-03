@@ -6,7 +6,7 @@
 </h1>
 <p align="center">
 <img src=""
-width="350" height="300"/>
+width="" height=""/>
 </p>
 <br>
 
@@ -173,7 +173,7 @@ Para a construção do projeto, as seguintes tecnologias foram utilizadas:
 <br>
 
 
-<td align="center"><a href="https://github.com/Edilainesds">
+<td align="center"><a href="">
 
    
     
