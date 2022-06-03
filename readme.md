@@ -1,6 +1,6 @@
 
 
- API Rest ## Sumário
+ API REST DESENVOLVIDA COM NODEJS ## Sumário
 
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Bibliotecas Aplicadas](#bibliotecas-aplicadas)
@@ -23,12 +23,7 @@
 <p align="justify">
 <br>
 
-
-
-
-
 <br>
-
 
 
 <br>
