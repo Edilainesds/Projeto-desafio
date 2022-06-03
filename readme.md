@@ -1,19 +1,5 @@
 
 
-<h1 align="center">
-    <br>
-    
-</h1>
-<p align="center">
-<img src=""
-width="" height=""/>
-</p>
-<br>
-
-
-
-<br>
-
  API Rest ## Sumário
 
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
@@ -145,42 +131,3 @@ Para a construção do projeto, as seguintes tecnologias foram utilizadas:
 | PATCH        | /conta/:id              | Atualiza saldo    |
 
 
-<br>
-    
-<p align="center">   
- <img src=""/>
-</p>
-
-
-
-
-
-
-<br>
-
-
- <br>
-
-
-
-
-
-<br>
-
-
-
-
-<br>
-
-
-<td align="center"><a href="">
-
-   
-    
-    
-
-
-    
-     
-
-<br>
