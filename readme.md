@@ -5,9 +5,10 @@
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Bibliotecas Aplicadas](#bibliotecas-aplicadas)
 - [Arquitetura MVC](#MVC)
-- [Rotas](#rotas) 
-- [Instruções para testar rotas ](#instruções-para-rotas)
-- [Portas](#portas)
+- [Instruções para instalação](#instruções-instalação)
+- [Porta](#porta)
+- [Instruções para testar rotas](#instruções-para-rotas)
+
 
 
 ## 🛠️ Tecnologias utilizadas no projeto
@@ -77,7 +78,33 @@ Para a construção do projeto, as seguintes tecnologias foram utilizadas:
 ```
 <br>
 
-## 🔃 Rotas
+## **Instruções para Instalação**
+
+Para intalação desta API, siga o passo a passo conforme abaixo:
+
+
+- No terminal Git Bash Here, faça o clone da API Projeto-desafio:
+
+      git clone https://github.com/Edilainesds/Projeto-desafio.git
+
+- Se desejar criar modificações no código, crie uma nova branch, senão pule esta etapa:
+
+      git checkout -b nome-da-sua-branch
+
+- Entre na pasta da API Projeto-desafio:
+
+      cd Projeto-desafio
+
+- Após entrar na pasta da API Projeto-desafio, instale todas as dependências: 
+
+      npm install ou npm i
+
+- Finalizado este processo, você estará apto a executar nossa API Projeto-desafio utilize o último comando para finalizar:
+
+      npm start
+
+
+## 🔃 Porta
 
 * local: http://localhost:7238
 
@@ -106,5 +133,7 @@ Para a construção do projeto, as seguintes tecnologias foram utilizadas:
 | GET          | /conta/saldo            | Retorna saldo                        |
 | POST         | /conta/deposito         | Faz um novo depósito                 |
 | PATCH        | /conta/:id              | Atualiza saldo    |
+
+
 
 
