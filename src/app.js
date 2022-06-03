@@ -4,15 +4,17 @@ const bodyParser = require("body-parser")
 const cadastroRoutes = require("./routes/cadastroRoutes")
 const contaRoutes = require("./routes/contaRoutes")
 require("dotenv-safe").config()
-//const swagger = require("swagger-ui-express")
+
 const db = require("./database/mongoConfig")
 db.connect()
 
 
-const app = express() 
+const app = express()
 app.use(cors())
 app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 
 
 app.use("/registro", cadastroRoutes)

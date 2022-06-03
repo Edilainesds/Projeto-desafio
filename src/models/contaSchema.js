@@ -6,7 +6,7 @@ const ContaSaldochema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Conta",
         required: true,
-        
+
     },
 
     saldo: {
@@ -21,4 +21,3 @@ const ContaSaldochema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model("contaSaldo", ContaSaldochema)
-

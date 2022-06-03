@@ -1,13 +1,13 @@
 const express = require("express")
-const routes = express.Router()
+const router = express.Router()
 const controller = require('../controller/contaController')
 
 
 
-routes.get("/saldo", controller.contaSaldo)
-routes.post("/deposito", controller.atualizaConta)
-routes.patch("/:id", controller.mostraConta)
+router.get("/saldo", controller.contaSaldo)
+router.post("/deposito", controller.atualizaConta)
+router.patch("/:id", controller.mostraConta)
 
 
 
-module.exports = routes
+module.exports = router

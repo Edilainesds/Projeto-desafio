@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose")
 
 const CadastroSchema = new mongoose.Schema({
@@ -6,7 +5,7 @@ const CadastroSchema = new mongoose.Schema({
     nome: {
         type: String,
         required: true,
-        
+
     },
 
     email: {
@@ -32,15 +31,15 @@ const CadastroSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-   
+
     celular: {
         type: Number,
-       required: true, 
+        required: true,
     },
 
-   pais: {
-       type: String,
-       required: true,
+    pais: {
+        type: String,
+        required: true,
     },
 
     criadoEm: {
@@ -48,8 +47,8 @@ const CadastroSchema = new mongoose.Schema({
         default: new Date()
     }
 
-    },
-    { timestamps: true }
-)
-  
+}, {
+    timestamps: true
+})
+
 module.exports = mongoose.model("Conta", CadastroSchema)

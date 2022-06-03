@@ -36,67 +36,71 @@ const criarConta = async (request, response) => {
 
     }
 }
-    const mostraCadastro = async (request, response) => {
+const mostraCadastro = async (request, response) => {
 
 
-        try {
-            const cadastros = await Cadastro.find()
-            response.status(200).json(cadastros)
-        } catch (error) {
-            response.status(500).json({
-                message: error.message
-            })
+    try {
+        const cadastros = await Cadastro.find()
+        response.status(200).json(cadastros)
+    } catch (error) {
+        response.status(500).json({
+            message: error.message
+        })
 
-        }
     }
-    const atualizaCadastros = async (request, response) => {
-        const encontraCadastro = await Cadastro.findById(request.params.id)
-        if (encontraCadastro == null) {
-            return response.status(404).json({ message: 'Cadastro não encontrado' })
-    
-        }
-        if (request.body.email != null) {
-            encontraCadastro.email = request.body.email
-        }
-    
-        if (request.body.senha != null) {
-            encontraCadastro.senha = request.body.senha
-        }
+}
+const atualizaCadastros = async (request, response) => {
+    const encontraCadastro = await Cadastro.findById(request.params.id)
+    if (encontraCadastro == null) {
+        return response.status(404).json({
+            message: 'Cadastro não encontrado'
+        })
 
-        if (request.body.endereco != null) {
-            encontraCadastro.endereco = request.body.endereco
-        }
-        if (request.body.bairro != null) {
-            encontraCadastro.bairro = request.body.bairro
-        }
+    }
+    if (request.body.email != null) {
+        encontraCadastro.email = request.body.email
+    }
 
-        if (request.body.celular != null) {
-            encontraCadastro.celular = request.body.celular
-        }
+    if (request.body.senha != null) {
+        encontraCadastro.senha = request.body.senha
+    }
 
-        if (request.body.pais != null) {
-            encontraCadastro.pais = request.body.pais
-        }
+    if (request.body.endereco != null) {
+        encontraCadastro.endereco = request.body.endereco
+    }
+    if (request.body.bairro != null) {
+        encontraCadastro.bairro = request.body.bairro
+    }
 
-    
-        try {
-    
-            const cadastroAtualizado = await encontraCadastro.save()
-            response.status(200).json(cadastroAtualizado)
-        
-        } catch (error) {
-            response.status(500).json({ message: error.message })
-            
-        }
+    if (request.body.celular != null) {
+        encontraCadastro.celular = request.body.celular
+    }
+
+    if (request.body.pais != null) {
+        encontraCadastro.pais = request.body.pais
     }
 
 
+    try {
 
+        const cadastroAtualizado = await encontraCadastro.save()
+        response.status(200).json(cadastroAtualizado)
 
+    } catch (error) {
+        response.status(500).json({
+            message: error.message
+        })
 
-
-    module.exports = {
-        criarConta,
-        mostraCadastro,
-        atualizaCadastros
     }
+}
+
+
+
+
+
+
+module.exports = {
+    criarConta,
+    mostraCadastro,
+    atualizaCadastros
+}
